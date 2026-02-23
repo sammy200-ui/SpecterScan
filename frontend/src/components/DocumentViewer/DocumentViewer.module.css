@@ -12,6 +12,8 @@
 .documentBody {
   max-width: 800px;
   margin: 0 auto;
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .documentBody p {
