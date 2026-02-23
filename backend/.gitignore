@@ -1,0 +1,36 @@
+# --- Python Virtual Environments ---
+# You NEVER want to upload these. GitHub will hate you, and it will break your teammates' computers.
+venv/
+env/
+.venv/
+
+# --- Python Cache Files ---
+# Python creates these automatically to run faster. They are useless on GitHub.
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Environment Variables ---
+# NEVER upload passwords, API keys, or database URLs!
+.env
+.env.local
+
+# --- OS Junk Files ---
+# Mac and Windows automatically create these annoying hidden files.
+.DS_Store
+Thumbs.db
+
+# --- IDE Folders ---
+# Settings specific to your VS Code or PyCharm
+.vscode/
+.idea/
+
+# --- Logs & Databases ---
+*.log
+*.sqlite3
+
+# --- ML Models & Data (OPTIONAL) ---
+# If your .pkl model or datasets get larger than 100MB, GitHub will block your push.
+# If your 'legal_risk_classifier.pkl' is small, you can leave these commented out so it uploads.
+# *.pkl
+# *.csv
