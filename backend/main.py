@@ -99,7 +99,7 @@ app.add_middleware(
 )
 
 
-=====================================
+# =====================================
 
 def extract_text_from_pdf(file_bytes: bytes) -> str:
     """
@@ -168,7 +168,7 @@ def segment_into_clauses(text: str, nlp) -> list[str]:
     return clauses
 
 
-=================================================
+# =================================================
 
 @app.get("/health")
 async def health_check():
@@ -308,6 +308,11 @@ def analyze_contract(file: UploadFile = File(...)):
 
 
 
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # When deployed on Render, it injects a PORT environment variable
+    port = int(os.environ.get("PORT", 8000))
+    # reload=True is normally not recommended for production, 
+    # but Render handles restarts anyway. Safer to turn it off.
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
