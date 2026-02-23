@@ -106,7 +106,7 @@
   transition: transform 0.3s ease;
 }
 
-.dropzone:hover .iconCircle, 
+.dropzone:hover .iconCircle,
 .dropzone.dragging .iconCircle {
   transform: translateY(-4px);
   background-color: #e0e7ff;
@@ -162,7 +162,7 @@
 }
 
 .analyzeBtn {
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -180,7 +180,7 @@
 }
 
 .analyzeBtn:hover:not(:disabled) {
-  background-color: var(--primary-hover);
+  background-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
@@ -192,17 +192,52 @@
   box-shadow: none;
 }
 
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
