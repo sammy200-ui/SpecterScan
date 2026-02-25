@@ -478,23 +478,31 @@ def inject_css():
     }
 
     /* ── Back button ── */
-    .back-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: none;
-        border: none;
-        color: #64748b;
-        font-size: 0.95rem;
-        font-weight: 500;
-        cursor: pointer;
-        padding: 0.5rem 0.75rem;
-        border-radius: 50%;
-        transition: all 0.2s;
+    .back-marker { display: none; }
+    [data-testid="stVerticalBlock"]:has(.back-marker) [data-testid="stButton"] button {
+        background: transparent !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        color: #64748b !important;
+        font-size: 1.1rem !important;
+        padding: 0.4rem 0.75rem !important;
+        border-radius: 10px !important;
+        transition: all 0.2s !important;
+        line-height: 1 !important;
     }
-    .back-btn:hover {
-        background: #f1f5f9;
-        color: #0f172a;
+    [data-testid="stVerticalBlock"]:has(.back-marker) [data-testid="stButton"] button:hover {
+        background: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+        color: #334155 !important;
+        box-shadow: none !important;
+    }
+    [data-testid="stVerticalBlock"]:has(.back-marker) [data-testid="stButton"] button:focus {
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    [data-testid="stVerticalBlock"]:has(.back-marker) [data-testid="stButton"] button:active {
+        background: #e2e8f0 !important;
+        box-shadow: none !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -761,7 +769,8 @@ def render_results_view(data: dict):
     # ── Header ──
     col_back, col_info, col_score = st.columns([0.5, 6, 2])
     with col_back:
-        if st.button("← ", key="back_btn"):
+        st.markdown('<span class="back-marker"></span>', unsafe_allow_html=True)
+        if st.button("←", key="back_btn"):
             st.session_state.view = "upload"
             st.session_state.results = None
             st.rerun()
